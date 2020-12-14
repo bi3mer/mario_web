@@ -11,22 +11,48 @@
 	</head>
 	<body>
     <div class="container">
-      <h3>
-        Map-Elites Segments
-      </h3>
-
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary"></button>
-        <button type="button" class="btn btn-secondary"></button>
-        <button type="button" class="btn btn-secondary"></button>
-      </div>
+      <center>
+        <h3>
+          Map-Elites Segments
+        </h3>
+      </center>
       <br/>
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary"></button>
-        <button type="button" class="btn btn-secondary"></button>
-        <button type="button" class="btn btn-secondary"></button>
+      <br/>
+
+      <div>
+        <div class="row">
+          <div class="col-sm">
+            <center>
+              <canvas id="canvas" width="400" height="400"></canvas>
+            </center>
+          </div>
+          <div class="col-sm">
+              <code style="color:rgb(226, 222, 222);">
+                -------------------------
+                -------------------------
+                -------------------------
+                -------------------------
+                -------------------------
+                -------------------------
+                -------------------------
+                -------------------------
+                -------------------------
+                -----Q--Q------XX--------
+                --------------XXX--------
+                -------------XXXX--------
+                -----E------XXXXX--------
+                XXXXXXXXXXXXXXXXX--XXXXXX 
+            </code>
+          </div>
+        </div>
       </div>
     </div>
+    <style>
+      code {
+      display: block;
+      white-space: pre-wrap   
+    }
+    </style>
     <script type=text/javascript src="{{url_for('static', filename='main.js') }}"></script>
   </body>
 </html>
