@@ -9,5 +9,5 @@ def root():
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
-    # app.run(debug=True, port=port)
-    app.run(threaded=True, port=port)
+    # app.run(host='0.0.0.0', debug=True, port=port)
+    app.run(host='0.0.0.0',threaded=True, port=port)
