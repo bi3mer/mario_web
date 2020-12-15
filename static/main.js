@@ -3,50 +3,52 @@ const width = 400;
 const height = 400;
 const widthAdder = width / resolution;
 const heightAdder = height / resolution;
+let data;
 
-var canvas = document.getElementById("canvas");
-
+const canvas = document.getElementById("canvas");
+const context = canvas.getContext("2d");
 
 $('#canvas').click((e) => {
   const rect = canvas.getBoundingClientRect()
-  const x = event.clientX - rect.left;
-  const y = Math.abs(event.clientY - rect.top - height);
+  const x = e.clientX - rect.left;
+  const y = Math.abs(e.clientY - rect.top - height);
 
-  gridX = Math.ceil(x / widthAdder) - 1;
-  gridY = Math.ceil(y / heightAdder) - 1;
-  console.log(gridX, gridY);
+  const linearity = Math.ceil(x / widthAdder) - 1;
+  const leniency = Math.ceil(y / heightAdder) - 1;
+
+  console.log(linearity, leniency);
 });
 
 function buildGrid() {
-  var ctx = canvas.getContext("2d");
-  
-  let w = 0;
-  let h = 0; 
-  let nextW = widthAdder;
-  let nextH = heightAdder;
+  $.get( "/get-data/data", (d) => {
+    // draw squares
+    data = JSON.parse(d);
+    data.forEach((row) => {
+      const linearity = row[0];
+      const leniency = row[1];
+      const percentPlayable = row[2]
 
-  for(let y = 0; y < resolution; ++y) {
-    for(let x = 0; x < resolution; ++x) {
-      const randomColor = Math.floor(Math.random()*16777215).toString(16);
-      ctx.fillStyle = `#${randomColor}`;
-      ctx.fillRect(w, h, nextW, nextH);
-      
-      w = nextW;
-      nextW += widthAdder
+      context.fillStyle = `rgb(20, ${255 * percentPlayable}, 220)`;
+      context.fillRect(
+        linearity * widthAdder, 
+        height - (leniency * heightAdder), 
+        widthAdder, 
+        heightAdder);
+    });
+
+    // draw grid
+    context.fillStyle = `rgb(0,0,0)`;
+    context.fillStyle = `rgb(100,100,100)`;
+    let w = 0;
+    let h = 0;
+    for(let i = 0; i < resolution; ++i) {
+      context.fillRect(w, 0, 1, height);
+      context.fillRect(0, h, width, 1);
+
+      w += widthAdder;
+      h += heightAdder;
     }
-    
-    w = 0;
-    nextW = widthAdder;
-    h = nextH;
-    nextH += widthAdder
-  }
+  });
 }
 
-
-function main() {
-  buildGrid();
-  // get data file and update grid elements and add call on click to 
-  // gridButtonPress
-}
-
-main();
+buildGrid();
