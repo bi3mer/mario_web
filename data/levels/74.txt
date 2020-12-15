@@ -10,5 +10,5 @@
 ------------------------------
 ------------------------------
 ------------------------------
-E---E---E---E-------E-E---E---
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+-E-E--E-E-E-------E-E-E---E-E-
+XXXXXXXXXXXXXXXX-XXXXXXXXXXXXX
