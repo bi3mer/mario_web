@@ -4,8 +4,22 @@ import os
 
 app = Flask(__name__)
 
+
+@app.route('/get-map/<index>')
+def get_map(index):
+    try:
+        f = open(os.path.join('data', 'levels', f'{int(index)}.txt'))
+        f.readline() # remove header
+        content = f.read()
+        f.close()
+
+        return content
+    except Exception as e:
+        print(e)
+        return "not found"
+
 @app.route('/get-data/<file>')
-def get(file):
+def get_data(file):
     if file == 'data':
         f = open(os.path.join('data', 'data.csv'))
         f.readline() # remove header
@@ -26,5 +40,5 @@ def root():
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', debug=True, port=port)
-    # app.run(host='0.0.0.0',threaded=True, port=port)
+    # app.run(host='0.0.0.0', debug=True, port=port)
+    app.run(host='0.0.0.0',threaded=True, port=port)

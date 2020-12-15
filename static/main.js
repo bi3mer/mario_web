@@ -16,7 +16,23 @@ $('#canvas').click((e) => {
   const linearity = Math.ceil(x / widthAdder) - 1;
   const leniency = Math.ceil(y / heightAdder) - 1;
 
-  console.log(linearity, leniency);
+  let found = -1;
+  for(let i = 0; i < data.length; ++i) {
+    const row = data[i];
+    if(row[0] == linearity && row[1] == leniency) {
+      found = i;
+      break;
+    }
+  }
+
+  if(found == -1) {
+    $('#map').text(`No corresponding map for linearity bin = ${linearity}, leniency bin = ${leniency}`);
+  } else {
+    $('#map').text(`one second`);
+    $.get(`/get-map/${found}`, (d) => { 
+      $('#map').text(d);
+    });
+  }
 });
 
 function buildGrid() {
