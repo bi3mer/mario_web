@@ -8,6 +8,8 @@ let data;
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 
+let recentMap = null;
+
 $('#canvas').click((e) => {
   const rect = canvas.getBoundingClientRect()
   const x = e.clientX - rect.left;
@@ -28,10 +30,19 @@ $('#canvas').click((e) => {
   if(found == -1) {
     $('#map').text(`No corresponding map for linearity bin = ${linearity}, leniency bin = ${leniency}`);
   } else {
-    $('#map').text(`one second`);
-    $.get(`/get-map/${found}`, (d) => { 
-      $('#map').text(d);
-    });
+    console.log('here');
+    console.log(recentMap);
+    if(recentMap === null) {
+      $.get(`/get-map/${found}`, (map) => { 
+        $('#map').text(map);
+      });
+    } else {
+      $.get(`/get-combo/${recentMap}/${found}`, (map) => { 
+        $('#map').text(map);
+      });
+    }
+
+    recentMap = found;
   }
 });
 
