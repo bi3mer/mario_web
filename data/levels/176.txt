@@ -10,5 +10,5 @@
 ------------------------------
 ------------------------------
 ------------------------------
---EE---E--EE---E--------E-----
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+EE--EEEE--EE-E-E-E---EE--EEE--
+XXXXXXXXXXXXXXXXXXXX-XXXXXXXXX

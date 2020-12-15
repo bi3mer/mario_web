@@ -1,0 +1,14 @@
+------------------------------
+------------------------------
+------------------------------
+--XX--XX---XX--XX------X-XX---
+--XX--XX---XX--XX------X-XX---
+--XX--XX---XX--XX------X-XX--S
+--XX--XX---XX--XX------X-XX---
+--XX--XX---XX--XX------X-XX---
+--XX--XX---XX--XX------X-XX---
+--XX--XX---XX--XX------X-XX---
+--XX--XX---XX--XX------X-XX---
+--XX--XX---XX--XX------X-XX---
+--XX--XX---XX--XX--EE--X-XX---
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXX-

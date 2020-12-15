@@ -1,0 +1,14 @@
+------------------------------
+------------------------------
+------------------------------
+--XX--XX--XX--XX------XXXX--XX
+--XX--XX--XX--XX------XXXX--XX
+--XX--XX--XX--XX------XXXX--XX
+--XX--XX--XX--XX------XXXX--XX
+--XX--XX--XX--XX------XXXX--XX
+--XX--XX--XX--XX---E--XXXX--XX
+--XX--XX--XX--XX--<>--XXXX--XX
+--XX--XX--XX--XX--[]--XXXX--XX
+--XX--XX--XX--XX--[]--XXXX--XX
+--XX--XX--XX--XX--[]--XXXX--XX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
