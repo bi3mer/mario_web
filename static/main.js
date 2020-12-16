@@ -30,8 +30,6 @@ $('#canvas').click((e) => {
   if(found == -1) {
     $('#map').text(`No corresponding map for linearity bin = ${linearity}, leniency bin = ${leniency}`);
   } else {
-    console.log('here');
-    console.log(recentMap);
     if(recentMap === null) {
       $.get(`/get-map/${found}`, (map) => { 
         $('#map').text(map);

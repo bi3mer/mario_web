@@ -26,7 +26,7 @@ def get_combo(start, end):
         end_map = rows_into_columns(f.readlines())
         f.close()
         
-        combined_map, length = generate_from_start_to_end(grammar, start_map, end_map, 1, include_path_length=True)
+        combined_map, length = generate_from_start_to_end(grammar, start_map, end_map, 0, include_path_length=True)
         return f'{columns_into_rows(combined_map)}\n\nLinker Length: {length}'
     except Exception as e:
         print(e)
