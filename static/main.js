@@ -21,7 +21,7 @@ $('#canvas').click((e) => {
   let found = -1;
   for(let i = 0; i < data.length; ++i) {
     const row = data[i];
-    if(row[0] == linearity && row[1] == leniency) {
+    if(row[3] == true && row[0] == linearity && row[1] == leniency) {
       found = i;
       break;
     }
@@ -49,16 +49,19 @@ function buildGrid() {
     // draw squares
     data = JSON.parse(d);
     data.forEach((row) => {
-      const linearity = row[0];
-      const leniency = row[1];
-      const percentPlayable = row[2]
+      row[3] = row[3] == 'true'; // convert to bool
+      if(row[3] === true) {
+        const linearity = row[0];
+        const leniency = row[1];
+        const percentPlayable = row[2];
 
-      context.fillStyle = `rgb(20, ${255 * percentPlayable}, 220)`;
-      context.fillRect(
-        linearity * widthAdder, 
-        height - (leniency * heightAdder), 
-        widthAdder, 
-        heightAdder);
+        context.fillStyle = `rgb(20, ${255 * percentPlayable}, 220)`;
+        context.fillRect(
+          linearity * widthAdder, 
+          height - (leniency * heightAdder), 
+          widthAdder, 
+          heightAdder);
+      }
     });
 
     // draw grid

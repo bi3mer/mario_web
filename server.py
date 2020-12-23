@@ -47,15 +47,14 @@ def get_map(index):
 @app.route('/get-data/<file>')
 def get_data(file):
     if file == 'data':
-        f = open(os.path.join('data', 'data.csv'))
-        f.readline() # remove header
+        f = open(os.path.join('data', 'validated.csv'))
         content = f.readlines()
         f.close()
 
         data = []
         for l in content:
-            linearity, leniency, playability = l.strip().split(',')
-            data.append([int(linearity), int(leniency), float(playability)])
+            linearity, leniency, playability, valid = l.strip().split(',')
+            data.append([int(linearity), int(leniency), float(playability), valid])
         return json.dumps(data)
 
     return "not found"
