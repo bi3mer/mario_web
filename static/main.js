@@ -32,15 +32,15 @@ $('#canvas').click((e) => {
   } else {
     if(recentMap === null) {
       $.get(`/get-map/${found}`, (map) => { 
-        $('#map').text(map);
+        $('#map').text(`${map}\n\n${found}`);
+        recentMap = found;
       });
     } else {
       $.get(`/get-combo/${recentMap}/${found}`, (map) => { 
-        $('#map').text(map);
+        $('#map').text(`${map}\n\n${recentMap} + ${found}`);
+        recentMap = found;
       });
     }
-
-    recentMap = found;
   }
 });
 
